@@ -1,0 +1,181 @@
+.main {
+    background-color: #181818;
+    padding: 20px;
+    height: 100%;
+}
+
+.main_container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.main_content-input-container {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.main_content-input {
+    border-radius: 5px;
+    background: #121212;
+    box-shadow: 0 15px 25px 0 rgba(0, 0, 0, 0.45);
+    color: white;
+    padding: 20px 150px 20px 20px;
+    /* Увеличили правый отступ */
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.buttons-container {
+    position: absolute;
+    right: 15px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.buttons_img-camera {
+    border-radius: 25px;
+    background: #EBEBEB;
+    padding: 11px;
+}
+
+/* Стили для кастомной кнопки загрузки файла */
+.file-upload-label {
+    cursor: pointer;
+    background: #3137C9;
+    color: white;
+    border-radius: 5px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.file-upload-label:hover {
+    background: #454bdf;
+}
+
+.file-upload-label svg {
+    margin-right: 5px;
+}
+
+/* Скрываем оригинальный input, но оставляем доступным */
+.main_content-image-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.main_content-input-btn {
+    background: #3137C9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 14px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.main_content-input-btn:hover {
+    background: #3137C9;
+}
+
+.main_content-input-btn:disabled {
+    background: #505050;
+    cursor: not-allowed;
+}
+
+/* Остальные стили остаются без изменений */
+.post {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 5px;
+    background: #202020;
+    box-shadow: 0 15px 25px 0 rgba(0, 0, 0, 0.35);
+    color: #D2D2D2;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    margin: 30px 0;
+}
+
+.post-image {
+    width: 100%;
+    max-height: 300px;
+
+}
+
+.post_title-text {
+    padding: 25px
+}
+
+.posts-list-empty {
+    color: white;
+    font-size: 35px;
+    text-align: center;
+}
+
+.post-title {
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 15px;
+}
+
+.post-body {
+    color: #D2D2D2;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    margin-bottom: 21px;
+    /* 150% */
+}
+
+.post-date {
+    color: #828282;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+.add-title-btn {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 5px;
+    padding: 0;
+    text-align: left;
+}
+
+.add-title-btn:hover {
+    color: #000;
+}

@@ -1,0 +1,100 @@
+.sidebar {
+    max-width: 300px;
+    background: #202020;
+    box-shadow: 5px 0 15px 0 rgba(5, 5, 5, 0.10);
+
+}
+
+.sidebar_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+.sidebar-content-photo {
+    border-radius: 100px;
+    border: 2px solid #FFF;
+    background: url('../../img/photo-logo.jpg') lightgray 50% / cover no-repeat, #FFF;
+    box-shadow: 0 7px 20px 0 rgba(0, 0, 0, 0.25);
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    position: absolute;
+    top: 130px;
+}
+
+.sidebar_content-span-name {
+    color: #FFF;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 69px;
+}
+
+.sidebar_content-span-blog {
+    color: #DEDEDE;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.sidebar_content-social-list {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 18px;
+    margin-bottom: 60px;
+}
+
+.sidebar_content-about {
+    color: #FFF;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    margin-bottom: 60px;
+}
+
+.sidebar_content-button{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.sidebar_content-button-work {
+    border-radius: 25px;
+    background: #ED3024;
+    box-shadow: 0 7px 17px -10px rgba(242, 63, 63, 0.20);
+    color: #FFF;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 13px 25px;
+}
+
+.sidebar_content-button-chat {
+    border-radius: 25px;
+    background: #3137C9;
+    box-shadow: 0 7px 17px -10px rgba(32, 84, 219, 0.35);
+    color: #FFF;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 13px 20px;
+}

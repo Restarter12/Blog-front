@@ -1,0 +1,79 @@
+.header {
+    background: #0D0D0D;
+    box-shadow: 0 5px 22px 0 rgba(0, 0, 0, 0.25);
+}
+
+.header_container {
+    padding: 15px 0;
+    padding-left: 15px;
+}
+
+.header_container-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header_container-nav-a {
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.header_container-nav-left {
+    display: flex;
+    align-items: center;
+    gap: 23px;
+}
+
+.select-list {
+    color: #FFF;
+    width: 86px;
+    height: 40px;
+    background-color: #0D0D0D;
+    margin: 0px;
+    padding-left: 10px;
+    font-family: Roboto;
+    font-size: 11px;
+    text-transform: uppercase;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='5' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    /* Позиционируем стрелку ближе */
+    background-size: 10px 6px;
+}
+
+.select-list:focus {
+    background-color: #3137C9;
+    outline: none;
+}
+
+.header_container-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+}
+
+.header_container-nav-right-input {
+    background: #202020;
+    box-shadow: -7px 1px 10px 0 rgba(0, 0, 0, 0.30);
+    padding: 14px 106px 12px 20px;
+    color: white;
+    margin-right: 20px;
+}
+
+.header_container-nav-right-input::placeholder {
+    color: rgba(255, 255, 255, 0.40);
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
