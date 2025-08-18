@@ -101,11 +101,7 @@
     cursor: not-allowed;
 }
 
-/* Остальные стили остаются без изменений */
 .post {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
     border-radius: 5px;
     background: #202020;
     box-shadow: 0 15px 25px 0 rgba(0, 0, 0, 0.35);
@@ -122,6 +118,23 @@
     width: 100%;
     max-height: 300px;
 
+}
+
+
+.post_title-down {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post_title-btn {
+    color: #107EFF;
+    text-align: right;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 .post_title-text {

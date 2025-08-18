@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import './main.css';
 import camera from './../../img/camera.svg';
 import send from './../../img/send.svg';
+import { useNavigate } from "react-router-dom";
 
 export const Main = ({ posts, setPosts }) => {
-    const [title, setTitle] = useState(""); 
+    const navigate = useNavigate();
+    const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
     const [image, setImage] = useState(null);
-    const [showTitleInput, setShowTitleInput] = useState(false); 
+    const [showTitleInput, setShowTitleInput] = useState(false);
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -20,13 +22,17 @@ export const Main = ({ posts, setPosts }) => {
         }
     };
 
+    const handleReactClick = (postId) => {
+        navigate(`/post/${postId}`)
+    }
+
     const addNewPost = (e) => {
         e.preventDefault();
         if (!body.trim() && !image) return;
-        
+
         const newPost = {
             id: Date.now(),
-            title: title.trim() || "Без названия", 
+            title: title.trim() || "Без названия",
             body,
             image,
             createdAt: new Date().toLocaleString()
@@ -50,14 +56,14 @@ export const Main = ({ posts, setPosts }) => {
                 <div className="main_content">
                     <form className="main_content-input-container" onSubmit={addNewPost}>
                         <div className="input-wrapper">
-                            <button 
-                                type="button" 
+                            <button
+                                type="button"
                                 className="add-title-btn"
                                 onClick={toggleTitleInput}
                             >
                                 {showTitleInput ? 'Скрыть заголовок' : '+ Добавить заголовок'}
                             </button>
-                            
+
                             {showTitleInput && (
                                 <input
                                     className='main_content-input title-input'
@@ -67,7 +73,7 @@ export const Main = ({ posts, setPosts }) => {
                                     placeholder='Введите заголовок'
                                 />
                             )}
-                            
+
                             <input
                                 className='main_content-input'
                                 type="text"
@@ -75,7 +81,7 @@ export const Main = ({ posts, setPosts }) => {
                                 onChange={e => setBody(e.target.value)}
                                 placeholder='Напишите что-нибудь'
                             />
-                            
+
                             <div className="buttons-container">
                                 <label htmlFor="imageInput" className="file-upload-btn">
                                     <div className="buttons_img-camera">
@@ -118,7 +124,15 @@ export const Main = ({ posts, setPosts }) => {
                                             <h3 className='post-title'>{post.title}</h3>
                                         )}
                                         {post.body && <p className='post-body'>{post.body}</p>}
-                                        <small className='post-date'>{post.createdAt}</small>
+                                        <div className="post_title-down">
+                                            <small className='post-date'>{post.createdAt}</small>
+                                            <button
+                                                className='post_title-btn'
+                                                onClick={() => navigate(`/post/${post.id}`)}
+                                            >
+                                                Читать
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             ))

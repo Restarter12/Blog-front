@@ -5,11 +5,13 @@ import Stories from './components/Stories/Stories';
 import { Main } from './components/main/Main';
 import "./styles/reset.css";
 import rectangle from './img/Rectangle.jpg';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import PostPage from './components/page/Page';
 
 function App() {
   const [posts, setPosts] = useState([
     {
-      id: 1, 
+      id: 1,
       title: "",
       body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat.",
       createdAt: new Date().toLocaleString(),
@@ -21,8 +23,8 @@ function App() {
       createdAt: new Date().toLocaleString(),
       image: rectangle
     }
-
   ]);
+
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedSort, setSelectedSort] = useState('');
 
@@ -36,21 +38,26 @@ function App() {
   );
 
   return (
-    <div className='content'>
-      <Sidebar />
-      <div className="main-content">
-        <Header
-          onSearch={setSearchQuery}
-          onSort={sortPosts}
-          selectedSort={selectedSort}
-        />
-        <Stories />
-        <Main
-          posts={filteredPosts}
-          setPosts={setPosts}
-        />
+    <Router>
+      <div className='content'>
+        <Sidebar />
+        <div className="main-content">
+          <Header
+            onSearch={setSearchQuery}
+            onSort={sortPosts}
+            selectedSort={selectedSort}
+          />
+          <Stories />
+          <Routes>
+            <Route path="/" element={<Main posts={filteredPosts} setPosts={setPosts} />} />
+            <Route
+              path="/post/:id"
+              element={<PostPage posts={posts} setPosts={setPosts} />}
+            />
+          </Routes>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
