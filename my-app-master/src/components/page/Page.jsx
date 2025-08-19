@@ -8,6 +8,7 @@ const PostPage = ({ posts, setPosts }) => {
     const navigate = useNavigate();
     const post = posts.find(post => post.id === Number(id));
     const [isEditing, setIsEditing] = useState(false);
+    const [value, setValue] = useState("");
     const [editedPost, setEditedPost] = useState({
         title: post?.title || '',
         body: post?.body || '',
@@ -16,6 +17,17 @@ const PostPage = ({ posts, setPosts }) => {
 
     if (!post) {
         return <div className="post-not-found">Пост не найден</div>;
+    }
+
+    const handleInput = (etar) => {
+        setValue(etar.target.value);
+    }
+
+    const handleDelete = (postId) => {
+        if (window.confirm('Вы уверены, что хотите удалить этот пост?')) {
+            setPosts(posts.filter(post => post.id !== postId));
+            navigate('/');
+        }
     }
 
     const handleInputChange = (e) => {
@@ -41,7 +53,7 @@ const PostPage = ({ posts, setPosts }) => {
     };
 
     const handleSave = () => {
-        const updatedPosts = posts.map(p => 
+        const updatedPosts = posts.map(p =>
             p.id === Number(id) ? { ...p, ...editedPost } : p
         );
         setPosts(updatedPosts);
@@ -54,7 +66,7 @@ const PostPage = ({ posts, setPosts }) => {
                 <button onClick={() => navigate(-1)} className="back-button">
                     ← Назад
                 </button>
-                
+
                 {isEditing ? (
                     <div className="edit-form">
                         <input
@@ -85,6 +97,7 @@ const PostPage = ({ posts, setPosts }) => {
                             <button onClick={() => setIsEditing(false)} className="cancel-button">
                                 Отмена
                             </button>
+                            <button onClick={() => handleDelete(post.id)}>Удалить Пост</button>
                         </div>
                     </div>
                 ) : (
@@ -103,8 +116,8 @@ const PostPage = ({ posts, setPosts }) => {
                             className="post-image"
                         />
                     )}
-                    <button 
-                        onClick={() => setIsEditing(!isEditing)} 
+                    <button
+                        onClick={() => setIsEditing(!isEditing)}
                         className='btn_redactor'
                     >
                         {isEditing ? 'Отменить редактирование' : 'Редактировать'}

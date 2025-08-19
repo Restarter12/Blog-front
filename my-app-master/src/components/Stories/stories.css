@@ -126,6 +126,7 @@
 }
 
 .story-close-btn {
+  font-family: Roboto;
   position: absolute;
   top: 12px;
   right: 12px;

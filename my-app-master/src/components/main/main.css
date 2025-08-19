@@ -93,7 +93,7 @@
 }
 
 .main_content-input-btn:hover {
-    background: #3137C9;
+    background: red;
 }
 
 .main_content-input-btn:disabled {
@@ -190,5 +190,5 @@
 }
 
 .add-title-btn:hover {
-    color: #000;
+    color: white;
 }
