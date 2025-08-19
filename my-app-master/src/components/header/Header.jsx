@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './header.css';
 import MySelect from '../UI/select/MySelect';
 
@@ -16,7 +17,9 @@ export const Header = ({ onSearch, onSort, selectedSort }) => {
             <div className="header_container">
                 <nav className="header_container-nav">
                     <div className="header_container-nav-left">
-                        <button className='header_container-nav-a'>Главная</button>
+                        <Link to="/">
+                            <button className='header_container-nav-a'>Главная</button>
+                        </Link>
                         <MySelect
                             value={selectedSort}
                             onChange={onSort}
@@ -30,7 +33,9 @@ export const Header = ({ onSearch, onSort, selectedSort }) => {
                         <button className='header_container-nav-a'>Реклама</button>
                     </div>
                     <div className="header_container-nav-right">
-                        <button className='header_container-nav-a'>Профиль</button>
+                        <Link to="/profile">
+                            <button className='header_container-nav-a'>Профиль</button>
+                        </Link>
                         <input
                             className='header_container-nav-right-input'
                             placeholder='Поиск по блогу'

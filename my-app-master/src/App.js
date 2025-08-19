@@ -7,28 +7,29 @@ import "./styles/reset.css";
 import rectangle from './img/Rectangle.jpg';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PostPage from './components/page/Page';
+import Profile from './components/profile/Profile';
 
 function App() {
   // Загружаем посты из localStorage при инициализации
   const [posts, setPosts] = useState(() => {
     const savedPosts = localStorage.getItem('posts');
-    return savedPosts 
-      ? JSON.parse(savedPosts) 
+    return savedPosts
+      ? JSON.parse(savedPosts)
       : [
-          {
-            id: 1,
-            title: "",
-            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat.",
-            createdAt: new Date().toLocaleString(),
-          },
-          {
-            id: 2,
-            title: "Как писать код быстро и безболезненно?",
-            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat.",
-            createdAt: new Date().toLocaleString(),
-            image: rectangle
-          }
-        ];
+        {
+          id: 1,
+          title: "",
+          body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat.",
+          createdAt: new Date().toLocaleString(),
+        },
+        {
+          id: 2,
+          title: "Как писать код быстро и безболезненно?",
+          body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat.",
+          createdAt: new Date().toLocaleString(),
+          image: rectangle
+        }
+      ];
   });
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -65,6 +66,7 @@ function App() {
               path="/post/:id"
               element={<PostPage posts={posts} setPosts={setPosts} />}
             />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </div>
       </div>
