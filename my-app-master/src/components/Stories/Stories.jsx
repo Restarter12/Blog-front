@@ -3,7 +3,7 @@ import StoryItem from './StoryItem';
 import StoryViewer from './StoryViewer';
 import "./stories.css";
 
-import avatar1 from './../../img/photo-logo.jpg';
+import avatar1 from './../../img/logo-sidebar.png';
 import storyPhoto1 from './../../img/photo-logo.jpg';
 import video from './../../img/videoOne.mp4';
 

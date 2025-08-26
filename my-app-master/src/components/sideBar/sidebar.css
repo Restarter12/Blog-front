@@ -19,22 +19,37 @@
     background: url('../../img/photo-logo.jpg') lightgray 50% / cover no-repeat, #FFF;
     box-shadow: 0 7px 20px 0 rgba(0, 0, 0, 0.25);
     width: 100px;
-    height: 100px;
+    height: 105px;
     flex-shrink: 0;
     position: absolute;
     top: 130px;
 }
 
+.sidebar_name{
+    display: flex;
+    margin-top: 69px;
+    justify-content: center;
+    
+}
+
 .sidebar_content-span-name {
     color: #FFF;
-    text-align: center;
     font-family: Roboto;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin-top: 69px;
+    margin-right: 5px;
 }
+.sidebar_content-span-last {
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
 
 .sidebar_content-span-blog {
     color: #DEDEDE;

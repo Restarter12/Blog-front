@@ -5,15 +5,17 @@ import photoLogo from './../../img/photo-logo.jpg';
 import instagram from './../../img/instagram.svg';
 import vk from './../../img/vk.svg';
 
-
-const Sidebar = () => {
+const Sidebar = ({ firstName, setFirstname, lastName, setLastName, avatar = photoLogo }) => {
   return (
     <div className='sidebar'>
       <div className="container">
         <div className="sidebar_content">
           <img src={sidebarImg} alt="sideLogo" />
-          <img className='sidebar-content-photo' src={photoLogo} alt="Photo" />
-          <span className="sidebar_content-span-name">Асхаб Юсупов</span>
+          <img className='sidebar-content-photo' src={avatar} alt="Photo" />
+          <div className="sidebar_name">
+            <span className="sidebar_content-span-name">{firstName}</span>
+            <span className="sidebar_content-span-last">{lastName}</span>
+          </div>
           <span className="sidebar_content-span-blog">блог front-end разработчика</span>
           <ul className="sidebar_content-social-list">
             <button>

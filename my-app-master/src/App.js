@@ -8,37 +8,61 @@ import rectangle from './img/Rectangle.jpg';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PostPage from './components/page/Page';
 import Profile from './components/profile/Profile';
+import About from './components/about/About';
+import defaultAvatar from './img/photo-logo.jpg';
 
 function App() {
-  // Загружаем посты из localStorage при инициализации
+  // Состояние пользователя
+  const [userData, setUserData] = useState(() => {
+    const savedUserData = localStorage.getItem('userData');
+    return savedUserData
+      ? JSON.parse(savedUserData)
+      : {
+          firstName: "Асхаб",
+          lastName: "Юсупов",
+          email: "",
+          avatar: defaultAvatar
+        };
+  });
+
   const [posts, setPosts] = useState(() => {
     const savedPosts = localStorage.getItem('posts');
     return savedPosts
       ? JSON.parse(savedPosts)
       : [
-        {
-          id: 1,
-          title: "",
-          body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat.",
-          createdAt: new Date().toLocaleString(),
-        },
-        {
-          id: 2,
-          title: "Как писать код быстро и безболезненно?",
-          body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat.",
-          createdAt: new Date().toLocaleString(),
-          image: rectangle
-        }
-      ];
+          {
+            id: 1,
+            title: "",
+            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat.",
+            createdAt: new Date().toLocaleString(),
+          },
+          {
+            id: 2,
+            title: "Как писать код быстро и безболезненно?",
+            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat.",
+            createdAt: new Date().toLocaleString(),
+            image: rectangle
+          }
+        ];
   });
 
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedSort, setSelectedSort] = useState('');
 
-  // Сохраняем посты в localStorage при каждом изменении
+  // Сохраняем данные пользователя в localStorage
+  useEffect(() => {
+    localStorage.setItem('userData', JSON.stringify(userData));
+  }, [userData]);
+
+  // Сохраняем посты в localStorage
   useEffect(() => {
     localStorage.setItem('posts', JSON.stringify(posts));
   }, [posts]);
+
+  // Функция для обновления данных пользователя
+  const updateUserData = (newData) => {
+    setUserData(prev => ({ ...prev, ...newData }));
+  };
 
   const sortPosts = (sort) => {
     setSelectedSort(sort);
@@ -52,7 +76,14 @@ function App() {
   return (
     <Router>
       <div className='content'>
-        <Sidebar />
+        <Sidebar 
+          firstName={userData.firstName}
+          lastName={userData.lastName}
+          avatar={userData.avatar}
+          setFirstname={(value) => updateUserData({ firstName: value })}
+          setLastName={(value) => updateUserData({ lastName: value })}
+          setAvatar={(value) => updateUserData({ avatar: value })}
+        />
         <div className="main-content">
           <Header
             onSearch={setSearchQuery}
@@ -66,7 +97,22 @@ function App() {
               path="/post/:id"
               element={<PostPage posts={posts} setPosts={setPosts} />}
             />
-            <Route path="/profile" element={<Profile />} />
+            <Route 
+              path="/profile"
+              element={
+                <Profile 
+                  firstName={userData.firstName}
+                  lastName={userData.lastName}
+                  email={userData.email}
+                  avatar={userData.avatar}
+                  setFirstName={(value) => updateUserData({ firstName: value })}
+                  setLastName={(value) => updateUserData({ lastName: value })}
+                  setEmail={(value) => updateUserData({ email: value })}
+                  setAvatar={(value) => updateUserData({ avatar: value })}
+                />
+              } 
+            />
+            <Route path="/about" element={<About />} />
           </Routes>
         </div>
       </div>

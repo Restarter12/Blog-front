@@ -1,9 +1,86 @@
-.profile{
+.profile {
     background-color: #181818;
     height: 100%;
 }
 
-.profile_container{
+.profile_container {
     max-width: 600px;
     margin: 0 auto;
+    margin-top: 88px;
+}
+
+.profile_name {
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    margin-bottom: 60px;
+    /* 100% */
+}
+
+.profile_form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: flex-start
+}
+
+.profile_form-input {
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 340px;
+    border: none;
+    border-bottom: 1px solid #3F3F3F;
+    background: transparent;
+    outline: none;
+    padding: 8px 0;
+}
+
+.profile_form-input:focus {
+    border-bottom: 1px solid #107EFF;
+}
+
+.form_container {
+    display: flex;
+    gap: 110px;
+}
+
+.profile_avatar-img {
+    width: 150px;
+    height: 150px;
+    flex-shrink: 0;
+}
+
+.profile_form-btn {
+    border-radius: 5px;
+    background: #3137C9;
+    box-shadow: 0 4px 15px -7px rgba(48, 55, 201, 0.30);
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 8px 15px;
+}
+
+.edit-image-input {
+    color: #107EFF;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
 }

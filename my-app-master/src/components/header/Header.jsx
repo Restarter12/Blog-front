@@ -29,7 +29,9 @@ export const Header = ({ onSearch, onSort, selectedSort }) => {
                                 { value: "createdAt", name: "По дате" }
                             ]}
                         />
-                        <button className='header_container-nav-a'>Обо мне</button>
+                        <Link to="/about">
+                            <button className='header_container-nav-a'>Обо мне</button>
+                        </Link>
                         <button className='header_container-nav-a'>Реклама</button>
                     </div>
                     <div className="header_container-nav-right">
